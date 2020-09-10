@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>simple variable expression</h1>
+<!-- directly getting the value from the modelattribute modelclass(object).variables ---------->
+<h2 th:text="${object.id}">user_ID: </h2>
+<h2 th:text="${object.name}">user_name: </h2>
+<hr>
+<h1>selection variable expression</h1>
+<div th:object="${object}">
+<h2 th:text="*{id}">user_ID: </h2>
+<h2 th:text="*{name}">user_name: </h2>
+</div>
+<hr>
+<h1>Message variable</h1>
+<h3 th:text="#{message.details}"></h3>
+<hr>
+<p><a href="#" th:href="@{user/100}">URL LINK</a>  </p>
+<p><a href="#" th:href="@{user(id=${object.id},name=${object.name})}">STRING URL</a></p>
+<p><a href="#" th:href="@{user/{id}/fullname/{name}(id=${object.id},name=${object.name})}">PATH VARIABLE</a></p>
+<hr>
+<!-- conditional operations -->
+<h2 th:if ="${object.id}>100" th:text="java"></h2>
+<h2 th:unless ="${object.id}>100" th:text="scala"></h2>
+<hr>
+<!--  -->
+<table>
+<tr th:each="var:${list}">
+<td th:text="${var.id}"></td>
+<td th:text="${var.name}"></td>
+</tr>
+</table>
+</body>
+</html>

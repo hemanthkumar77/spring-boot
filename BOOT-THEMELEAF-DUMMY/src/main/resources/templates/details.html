@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+      <title> Spring Boot  Thymeleaf </title>
+      <link rel="stylesheet" th:href="@{/styles.css}"/>
+</head>
+<body>
+   <h1>User Details</h1>
+    <table>
+        <tr>
+           <th>UserID</th>
+           <th >User Name</th>
+           <th >Gender</th>
+           <th>Department_name</th>
+        </tr>
+        <tr th:each="user : ${allUsers}">
+	      <td th:text="${user.id}">Id</td>
+		  <td th:text="${user.name}">NAME</td>
+		  <td th:text="${user.gender}">Gender</td>
+		  <td th:text="${user.dept_name}">DEPARTMENT_NAME</td>		  		  
+	    </tr>	
+	</table>
+	<a href="#" th:href="@{/student/index}">Add User</a>
+</body>
+</html>
